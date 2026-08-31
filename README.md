@@ -92,7 +92,8 @@ For reproducibility, a **returned order** is a distinct `Order_ID` with **`Retur
 
 The raw workbook contains inconsistent `Return_Flag` labels (`Y`, `Yes`, `Returned`, `N`, `No`, `Not Returned`). Therefore, the analytical return condition should be based on the actual returned quantity after cleaning rather than relying only on the raw flag text.
 
----
+--- <img width="1426" height="766" alt="image" src="https://github.com/user-attachments/assets/12f85e3f-2a89-4648-a093-3788bde6737f" />
+
 
 ## 4. Executive Dashboard — Page 1
 
@@ -118,7 +119,8 @@ The first dashboard page answers: **What is happening with returns at a business
 
 The monthly trend is used to detect spikes and seasonality, while Pareto analysis identifies the small number of return reasons contributing most returned units.
 
----
+--- <img width="1490" height="826" alt="image" src="https://github.com/user-attachments/assets/a167291d-4042-49ea-861e-bab65b6e43f2" />
+
 
 ## 5. Product Diagnostics — Page 2
 
