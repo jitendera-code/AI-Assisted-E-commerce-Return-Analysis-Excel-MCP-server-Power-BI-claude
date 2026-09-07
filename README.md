@@ -120,7 +120,8 @@ The first dashboard page answers: **What is happening with returns at a business
 
 The monthly trend is used to detect spikes and seasonality, while Pareto analysis identifies the small number of return reasons contributing most returned units.
 
---- <img width="1490" height="826" alt="image" src="https://github.com/user-attachments/assets/a167291d-4042-49ea-861e-bab65b6e43f2" />
+--- <img width="1282" height="745" alt="image" src="https://github.com/user-attachments/assets/4c0b7f68-265b-475b-b3fd-f70e9214c94a" />
+
 
 
 ## 5. Product Diagnostics — Page 2
@@ -152,7 +153,8 @@ The product table includes product, subcategory, orders, returned units, return 
 
 The project intentionally does **not** use a Top 10 Returned Products visual; product-level risk is investigated through the detailed table and diagnostic relationships instead.
 
----
+---<img width="1327" height="752" alt="image" src="https://github.com/user-attachments/assets/a42c4c79-dd8e-4d0a-8373-7911710b2867" />
+
 
 ## 6. Key Findings
 
