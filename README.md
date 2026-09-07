@@ -92,7 +92,8 @@ For reproducibility, a **returned order** is a distinct `Order_ID` with **`Retur
 
 The raw workbook contains inconsistent `Return_Flag` labels (`Y`, `Yes`, `Returned`, `N`, `No`, `Not Returned`). Therefore, the analytical return condition should be based on the actual returned quantity after cleaning rather than relying only on the raw flag text.
 
---- <img width="1426" height="766" alt="image" src="https://github.com/user-attachments/assets/12f85e3f-2a89-4648-a093-3788bde6737f" />
+--- <img width="1917" height="1007" alt="image" src="https://github.com/user-attachments/assets/3dec4a3e-dfc2-4686-b14e-c5864b240946" />
+
 
 
 ## 4. Executive Dashboard — Page 1
