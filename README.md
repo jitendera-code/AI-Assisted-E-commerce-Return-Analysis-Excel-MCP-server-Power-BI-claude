@@ -4,9 +4,9 @@
 
 ## 1. Company Background
 
-**Hypothetical company: ShopKart — an India-focused e-commerce marketplace.**
+An India-based e-commerce marketplace sells products across Fashion, Electronics, Home & Kitchen, Sports, Beauty and Books through multiple sales channels. As the business grows, product returns create refund exposure, operational workload and customer-experience challenges.
 
-ShopKart sells products across Fashion, Electronics, Home & Kitchen, Sports, Beauty and Books through multiple sales channels. The business wants to reduce product returns because high returns create refund exposure, operational workload and poor customer experience.
+The business has detailed order, product, pricing, delivery and return data, but needs a clear analytical view of **why customers return products, where return risk is concentrated, when return risk increases, and which problems should be addressed first**.
 
 ### North Star Metrics
 
@@ -19,22 +19,23 @@ ShopKart sells products across Fashion, Electronics, Home & Kitchen, Sports, Bea
 
 Supporting decision metrics include **return rate by category, return reason, price range, month and product**.
 
-> **Important:** ShopKart is a hypothetical company created for this portfolio project. The analysis uses the supplied e-commerce dataset.
-
 ## 2. Business Problem
 
-ShopKart is facing a **24.03% order return rate**. The business can see that customers are returning products, but the management question is more specific:
+As the e-commerce business grows, product returns create pressure on **profitability, operations and customer experience**. However, the business lacks a clear, data-driven view of why customers return products, which product categories and price segments are most exposed, when return risk increases, and which return problems should be addressed first.
 
-> **Which return problems are driving the largest return burden, where are they concentrated, and which fixes should the business prioritize first?**
+Without this visibility, product, merchandising and operations teams may spend resources addressing individual return cases without knowing which issues have the greatest business impact.
 
-The business needs to:
+The business therefore needs an analytical framework to:
 
-- quantify return reasons and returned units;
-- identify high-return product categories;
-- identify price and monthly patterns;
-- locate high-impact product/problem combinations;
-- develop evidence-based root-cause hypotheses; and
-- recommend specific fixes with measurable success KPIs.
+- quantify the major return reasons;
+- determine where return risk is highest across products and categories;
+- uncover price and time-based return patterns;
+- identify the most important areas for investigation; and
+- prioritize corrective actions using return volume, return rate and financial exposure.
+
+### Core Business Question
+
+> **Which return problems should the business fix first to reduce customer returns and refund exposure?**
 
 ## 3. Executive Summary
 
@@ -42,19 +43,19 @@ The business needs to:
 
 - **745 of 3,100 orders were returned → 24.03% return rate.**
 - **Product Not As Expected (228), Wrong Size (217), and Damaged Product (184)** account for **629 of 1,113 returned units → 56.5%** of return volume.
-- Return rate is relatively stable through most of the year, but rises sharply at year-end, reaching **32.16% in December** versus **19.30% in September** — a **12.86 percentage-point increase**.
+- Return rate rises sharply at year-end, reaching **32.16% in December** versus **19.30% in September** — a **12.86 percentage-point increase**.
 - **Fashion has the highest category return rate at 26.15%**, followed by Electronics at **21.74%**.
-- The **₹1K–5K price band has the highest return rate at 23.28%**, indicating a segment worth deeper category/reason investigation.
+- The **₹1K–5K price band has the highest return rate at 23.28%**, making it a segment worth deeper category and reason-level investigation.
 
 ### Product / Diagnostic View — Where should the team act?
 
-The diagnostic analysis drills from category and return reason into **subcategory and product-level performance** so the business can identify which products need investigation rather than treating every return equally.
+The diagnostic analysis drills from category and return reason into **subcategory and product-level performance** so the business can identify which products and problem areas need investigation rather than treating every return equally.
 
 ### Executive Business Takeaway
 
 **Focus the intervention on the few problems driving most returns, localize those problems to the highest-risk product areas, and measure the impact of targeted fixes.**
 
-> Root-cause statements in this project are **hypotheses**, not proven causes, because the dataset does not contain direct customer feedback, PDP-content history, packaging type, or carrier-level evidence.
+> Root-cause statements in this project are **hypotheses**, not proven causes, because the dataset does not contain direct customer feedback, PDP-content history, packaging type or carrier-level evidence.
 
 ## 4. Decision
 
@@ -77,12 +78,12 @@ The analysis follows:
 - Analyze monthly/time-based return patterns.
 
 ### 5.3 Root-Cause Assessment
-- For the priority return problems, assess whether the likely issue relates to the product, listing/PDP, packaging, or logistics.
+- For the priority return problems, assess whether the likely issue relates to the product, listing/PDP, packaging or logistics.
 - Root-cause conclusions are treated as hypotheses because the dataset does not contain direct customer feedback or operational evidence.
 
 ### 5.4 Recommendations
 - Recommend one specific fix for each priority problem.
-- Prioritize fixes using return volume, return rate, and financial exposure.
+- Prioritize fixes using return volume, return rate and financial exposure.
 
 ## 6. Key Insights → Business Meaning
 
@@ -93,7 +94,7 @@ The top three return reasons account for **56.5% of returned units**. This gives
 Fashion has a **26.15% return rate**, the highest across categories shown. This makes Fashion a priority area for deeper product and sizing investigation.
 
 ### Insight 3 — Year-end return risk increases sharply
-The monthly return rate reaches **32.16% in December**, compared with **19.30% in September**. The business should investigate what changes during Q4, including product mix, promotions, customer behavior and delivery pressure.
+The monthly return rate reaches **32.16% in December**, compared with **19.30% in September**. The business should investigate what changes during Q4, including product mix, promotions, customer behavior and delivery pressure. These are investigation hypotheses, not proven causes.
 
 ### Insight 4 — Mid-priced products need investigation
 The **₹1K–5K band has the highest return rate at 23.28%**, while products under ₹1K are at **13.65%**. The difference is **9.63 percentage points**, so this segment deserves drill-down by category and return reason.
@@ -116,11 +117,11 @@ These fixes focus on the return reasons responsible for the largest concentratio
 - **December = 32.16%** return rate, the highest month shown.
 - **₹1K–5K = 23.28%** return rate, the highest price band shown.
 
-The project does **not** claim realized savings because no intervention has been executed. Monthly refund exposure or savings should only be estimated after agreeing on the exact refund basis and validating the model figures.
+No realized savings are claimed because no intervention has been executed. Any financial improvement should be treated as a **proposed target or scenario** until a fix is implemented and measured.
 
 ## 9. What the Data Does Not Support
 
-The dataset can show return patterns and priorities, but it cannot prove the **actual** operational root cause of each return. Claims such as “packaging caused the damage” or “the listing caused the mismatch” require additional evidence.
+The dataset can show return patterns and priorities, but it cannot prove the **actual operational root cause** of each return. Claims such as “packaging caused the damage” or “the listing caused the mismatch” require additional evidence.
 
 The project therefore uses **evidence-based root-cause hypotheses** and recommends what the business should validate next.
 
