@@ -7,9 +7,7 @@
 
 This project analyzes 2025 e-commerce order-line data to turn return data into **prioritized business actions**.
 
-The analysis is structured as:
-
-**Business Problem → Decision → North Star Metrics → Evidence → Insight → Recommendation → Expected Impact**
+**Portfolio story:** Business Problem → Decision → North Star Metrics → Analysis → Insight / Why → Recommendation → Expected Impact
 
 ### Decision
 
@@ -20,28 +18,25 @@ The business needs to decide **where to focus first** because not every return p
 | Metric | Definition | Why it matters |
 |---|---|---|
 | **Return Rate %** | Returned Orders ÷ Total Orders | Measures overall return risk |
-| **Returned Units** | Sum of returned quantity | Shows the scale of the problem |
+| **Returned Units** | Sum of returned quantity | Shows problem scale |
 | **Refund Amount** | Returned quantity × paid price after discount × refund factor | Quantifies financial exposure |
-| **Average Return Days** | Return Date − Delivery Date | Shows return timing/customer behavior |
+| **Average Return Days** | Return Date − Delivery Date | Shows return timing |
 
 ### Headline Business Insights
 
 - **745 of 3,100 orders were returned → 24.03% return rate.**
-- **1,113 units were returned**, so the issue is material enough to prioritize rather than treat as isolated cases.
+- **1,113 units were returned**, making returns a material business problem.
 - **Product Not As Expected (228), Wrong Size (217), and Damaged Product (184)** together represent **629 returned units, or 56.5% of all returned units**.
-- The three priorities also account for approximately **₹19.84L in derived refunds, or 52.0% of total refund exposure**.
-- **Fashion has the highest returned-unit volume (392)**, while **Electronics has the highest derived refund exposure (≈₹15.62L)**. This means volume and financial priority are not necessarily the same.
+- The three priorities account for approximately **₹19.84L in derived refunds, or 52.0% of total refund exposure**.
+- **Fashion has the highest returned-unit volume (392)**, while **Electronics has the highest derived refund exposure (≈₹15.62L)**. Volume and financial priority are therefore not always the same.
 
 ### What should the business do first?
 
-**Priority 1 — Product Not As Expected**
-Improve product-page images, descriptions, specifications and expectation-setting for high-return products.
+**1. Product Not As Expected** — Improve product-page images, descriptions, specifications and expectation-setting for high-return products.
 
-**Priority 2 — Wrong Size**
-Strengthen size charts and fit guidance, especially for Fashion and footwear.
+**2. Wrong Size** — Strengthen size charts and fit guidance, especially for Fashion and footwear.
 
-**Priority 3 — Damaged Product**
-Audit packaging and delivery/marketplace handling for products with elevated damage returns.
+**3. Damaged Product** — Audit packaging and delivery/marketplace handling for products with elevated damage returns.
 
 These are **evidence-based actions to test**, not claims of proven causality.
 
@@ -56,7 +51,7 @@ The business can see that products are being returned, but needs to answer four 
 3. **Where are returns and refund exposure concentrated?**
 4. **Which problem should the business fix first?**
 
-The project is designed to answer those questions instead of simply displaying every available column in a dashboard.
+The project is designed to answer those questions instead of displaying every available field without prioritization.
 
 ---
 
@@ -64,19 +59,19 @@ The project is designed to answer those questions instead of simply displaying e
 
 ### Step 1 — Measure the size of the problem
 
-Use Total Orders, Returned Orders, Return Rate %, Returned Units and Refund Amount to establish the baseline.
+Establish a baseline using Total Orders, Returned Orders, Return Rate %, Returned Units and Refund Amount.
 
-### Step 2 — Explain the "why"
+### Step 2 — Explain the “why”
 
 Standardize return reasons and use Pareto analysis to identify the largest return drivers.
 
-### Step 3 — Explain the "where"
+### Step 3 — Explain the “where”
 
 Compare category, subcategory, product and channel patterns to locate concentrated return problems.
 
 ### Step 4 — Prioritize
 
-Prioritize issues using three signals:
+Prioritize issues using:
 
 **Return volume + return rate + financial exposure**
 
@@ -88,22 +83,7 @@ Every recommendation follows:
 
 ---
 
-## 3. North Star Metrics
-
-The dashboard is intentionally focused on decision-useful KPIs.
-
-| KPI | Business question | Decision lens |
-|---|---|---|
-| Total Orders | What is the order base? | Business volume |
-| Returned Orders | How many orders came back? | Return exposure |
-| Return Rate % | How frequently are orders returned? | Risk |
-| Returned Units | How many units are affected? | Problem scale |
-| Refund Amount | How much financial exposure exists? | Financial impact |
-| Average Return Days | How long after delivery do returns occur? | Customer behavior |
-
----
-
-## 4. Dataset & Data Model
+## 3. Dataset & Data Model
 
 ### Source
 
@@ -120,64 +100,48 @@ One row represents **one product line inside an order**.
 
 `Order_ID` can repeat because an order may contain multiple product lines. Order-level KPIs therefore use `DISTINCTCOUNT(Order_ID)`.
 
-### Star schema
-
-`Fact_Orders` is the central fact table with:
-
-- `Dim_Date`
-- `Dim_Product`
-- `Dim_Customer`
-- `Dim_Channel`
-- `Dim_Payment_Method`
-- `Dim_Return_Reason`
-
 ### Return definition
 
 A returned order is counted as a distinct `Order_ID` where **`Return_Quantity > 0`**.
 
 This produces **745 returned orders / 24.03% return rate** from 3,100 total orders.
 
-The raw workbook contains inconsistent return-flag labels, so the analysis uses returned quantity as the analytical condition after cleaning.
+The raw workbook contains inconsistent return-flag labels, so returned quantity is used as the analytical return condition after cleaning.
 
 ---
 
-## 5. Dashboard Structure
+## 4. Dashboard
 
 ### Page 1 — Executive Decision View
 
 **Question:** What is happening with returns at a business level?
 
-Includes:
-
-- KPI cards
+Focuses on:
+- Return Rate and returned-order KPIs
 - Monthly return trend
-- Return-reason Pareto
+- Return-reason distribution / Pareto
 - Returns by category
-- Returned units by sales channel
-- Date, category and channel slicers
-
-The page is designed to establish the size of the problem and identify the major return drivers.
+- Sales-channel context
+- Date, category and channel filters
 
 ### Page 2 — Diagnostic / Action View
 
 **Question:** Where are the problems concentrated and what should be investigated next?
 
-Includes:
-
+Focuses on:
 - Average Return Days
-- Products Returned
+- Product return performance
 - Top Return Category
 - Top Return Reason
-- Subcategory × Return Reason heatmap
-- Discount vs Return Risk analysis
+- Subcategory × Return Reason analysis
+- Discount vs Return Risk
 - Product return-detail table
-- Date, category, channel and return-reason slicers
 
-The second page supports diagnosis rather than repeating executive KPIs.
+The second page is intended for diagnosis and action, not simply to repeat executive KPIs.
 
 ---
 
-## 6. Key Insights
+## 5. Key Insights
 
 ### Insight 1 — Three return reasons drive more than half of returned units
 
@@ -225,7 +189,7 @@ Together they account for **629 / 1,113 = 56.5%** of returned units.
 
 ---
 
-## 7. Recommendation Matrix
+## 6. Recommendation Matrix
 
 | Priority | Evidence | Action | Owner / stakeholder | Expected impact | KPI |
 |---|---|---|---|---|---|
@@ -235,11 +199,9 @@ Together they account for **629 / 1,113 = 56.5%** of returned units.
 | **4** | Quality Issue: 143 units | Create product/vendor quality scorecards | Quality / Vendor Management | Identify recurring quality problems | Quality return rate |
 | **5** | Discount/return relationship needs testing | Review high-discount products with elevated return rates | Pricing / Merchandising | Avoid increasing risk through discounting | Return rate by discount band |
 
-The recommendations are framed as **testable business actions**, because the available dataset does not contain enough evidence to prove operational root causes.
-
 ---
 
-## 8. Data Quality & Assumptions
+## 7. Data Quality & Assumptions
 
 - Return reasons require standardization before aggregation.
 - Return flags contain inconsistent labels.
@@ -248,13 +210,14 @@ The recommendations are framed as **testable business actions**, because the ava
 - Refund Amount is derived from returned quantity, paid price after discount, and refund deductions.
 - High-return percentages on tiny product volumes should be interpreted cautiously.
 - Channel concentration does not prove channel causation.
-- Discount/return relationships should be treated as associations until validated.
+- Discount/return relationships are associations until validated.
+- The final period should be checked for completeness before interpreting a decline in monthly metrics.
 
 ---
 
-## 9. What the Data Cannot Prove
+## 8. What the Data Cannot Prove
 
-This project can identify **where returns are concentrated and what patterns deserve action**, but not prove operational root causes.
+This project can identify **where returns are concentrated and which patterns deserve action**, but it cannot prove operational root causes by itself.
 
 Additional evidence would be required for causal conclusions, such as:
 
@@ -265,11 +228,11 @@ Additional evidence would be required for causal conclusions, such as:
 - Seller/vendor information
 - Controlled A/B tests
 
-This distinction is intentional: the project demonstrates analytical judgment rather than overstating correlation as causation.
+This distinction is intentional: the project demonstrates analytical judgment without overstating correlation as causation.
 
 ---
 
-## 10. AI-Assisted Workflow
+## 9. AI-Assisted Workflow
 
 Claude was used as an **analytical assistant**, not as a substitute for the analyst.
 
@@ -282,14 +245,7 @@ The workflow included:
 - Investigation of business patterns
 - Support for hypothesis development
 
-The analyst remained responsible for:
-
-- Defining the business questions
-- Choosing the North Star metrics
-- Designing the dashboard
-- Interpreting findings
-- Prioritizing recommendations
-- Final validation and business decisions
+The analyst remained responsible for defining the business questions, choosing the North Star metrics, designing the dashboard, interpreting findings, prioritizing recommendations, and final validation.
 
 ### Why MCP mattered
 
@@ -297,42 +253,71 @@ MCP acted as the bridge between Claude and the Power BI semantic model, allowing
 
 ---
 
-## 11. Repository Structure
+## 10. Technical Evidence
+
+The README presents the decision story first. Technical detail is kept in supporting files:
+
+- [`dax/MEASURES.md`](dax/MEASURES.md) — DAX logic and KPI definitions
+- [`docs/ANALYSIS_NOTES.md`](docs/ANALYSIS_NOTES.md) — validated analytical notes
+- [`docs/BUSINESS_RECOMMENDATIONS.md`](docs/BUSINESS_RECOMMENDATIONS.md) — recommendation logic
+- [`docs/PROJECT_SCOPE.md`](docs/PROJECT_SCOPE.md) — scope and analytical rules
+- [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md) — field definitions
+- [`PowerBI_Claude_MCP_Setup_Guide.pdf`](PowerBI_Claude_MCP_Setup_Guide.pdf) — MCP setup reference
+- [`Return analysis.pbix`](Return%20analysis.pbix) — Power BI report file
+
+---
+
+## 11. Current Repository Structure
 
 ```text
-AI-Assisted-E-commerce-Return-Analysis-Excel-MCP-server-Power-BI-claude/
-│
 ├── README.md
 ├── Book1.csv
-├── powerbi/
-├── excel/
+├── Return analysis.pbix
+├── PowerBI_Claude_MCP_Setup_Guide.pdf
 ├── dax/
+│   └── MEASURES.md
 ├── docs/
+│   ├── ANALYSIS_NOTES.md
+│   ├── BUSINESS_RECOMMENDATIONS.md
+│   ├── DATA_DICTIONARY.md
+│   ├── PROJECT_SCOPE.md
+│   └── RESUME_BULLETS.md
 └── screenshots/
 ```
 
-The repository is organized so that the **README tells the business story**, while supporting files hold the technical detail.
+The repository already separates analysis notes, DAX, business recommendations and supporting documentation. The remaining presentation improvement is to move the two dashboard images into a dedicated `screenshots/` folder with recruiter-friendly filenames and embed them in this README.
 
 ---
 
-## 12. Portfolio Positioning
+## 12. Limitations & Next Steps
 
-This project is intended to demonstrate that I can:
+### Limitations
 
-- Start with a business problem instead of a dataset alone.
+- The dataset does not contain direct customer interview/feedback data.
+- Root causes are analytical hypotheses rather than experimentally proven causes.
+- Historical data cannot alone prove that a recommendation will reduce returns.
+
+### Next Steps
+
+- Add customer-feedback data.
+- Test interventions such as improved size guidance or packaging.
+- Track return-rate changes after implementation.
+- Automate recurring return reporting.
+
+---
+
+## Portfolio Positioning
+
+This project demonstrates that I can:
+
+- Start with a business problem rather than a dataset alone.
 - Define decision-focused KPIs.
-- Analyze evidence before making a recommendation.
 - Separate findings from insights.
+- Use evidence before making recommendations.
 - Distinguish correlation from causation.
-- Prioritize actions using volume, risk and financial impact.
+- Prioritize actions using return volume, risk and financial impact.
 - Communicate recommendations in stakeholder language.
 - Use Power BI, DAX, Excel, Claude and MCP as tools supporting the analysis.
-
-### Portfolio story
-
-> **Business Problem → Decision → North Star Metrics → Analysis → Insight / Why → Recommendation → Expected Impact**
-
----
 
 ## Author
 
