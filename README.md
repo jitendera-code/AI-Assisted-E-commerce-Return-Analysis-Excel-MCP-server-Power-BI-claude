@@ -98,9 +98,11 @@ Answers: **Where should we investigate next?**
 
 ### Dashboard Screenshots
 
-![Executive Dashboard](screenshots/executive_dashboard.png)
+The current screenshots are stored at the repository root while the report file remains unchanged to avoid breaking the working Power BI/source setup.
 
-![Diagnostic Dashboard](screenshots/diagnostic_dashboard.png)
+![Executive Dashboard](Screenshot%202026-08-31%20234056.png)
+
+![Diagnostic Dashboard](Screenshot%202026-08-31%20234141.png)
 
 ## 5. Insight → Meaning → Action
 
@@ -186,6 +188,8 @@ The analyst remained responsible for business questions, KPI selection, dashboar
 ├── Book1.csv
 ├── Return analysis.pbix
 ├── PowerBI_Claude_MCP_Setup_Guide.pdf
+├── Screenshot 2026-08-31 234056.png
+├── Screenshot 2026-08-31 234141.png
 ├── data/
 │   ├── README.md
 │   └── DATA_DICTIONARY.md
@@ -203,6 +207,8 @@ The analyst remained responsible for business questions, KPI selection, dashboar
 └── docs/
     └── PROJECT_SCOPE.md
 ```
+
+The repository separates **business analysis, data documentation, Power BI/DAX evidence and recruiter-facing documentation**, while the working PBIX/source and current screenshots remain intact at the root.
 
 ## 12. Limitations & Next Steps
 
