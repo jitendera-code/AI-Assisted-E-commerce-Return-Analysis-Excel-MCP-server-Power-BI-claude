@@ -1,4 +1,4 @@
-# E-commerce Return & Refund Analysis
+# E-commerce Product Return Analysis Using AI Assistant
 
 ### Decision-Driven Data Analytics | Power BI · DAX · Excel · Claude AI · MCP
 
