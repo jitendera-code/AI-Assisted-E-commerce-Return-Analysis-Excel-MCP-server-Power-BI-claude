@@ -1,0 +1,23 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Power BI local/cache files
+*.pbi\u002dlocal
+*.pbi\u002dcache
+
+# Python cache (for future analysis scripts)
+__pycache__/
+*.py[cod]
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Logs / temporary files
+*.log
+*.tmp
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
