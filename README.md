@@ -46,6 +46,8 @@ The business therefore needs an analytical framework to:
 - Return rate rises sharply at year-end, reaching **32.16% in December** versus **19.30% in September** — a **12.86 percentage-point increase**.
 - **Fashion has the highest category return rate at 26.15%**, followed by Electronics at **21.74%**.
 - The **₹1K–5K price band has the highest return rate at 23.28%**, making it a segment worth deeper category and reason-level investigation.
+  <img width="1387" height="747" alt="image" src="https://github.com/user-attachments/assets/c88e15eb-bc49-44fc-9f08-52a6a8d77458" />
+
 
 ### Product / Diagnostic View — Where should the team act?
 
@@ -54,6 +56,8 @@ The diagnostic analysis drills from category and return reason into **subcategor
 ### Executive Business Takeaway
 
 **Focus the intervention on the few problems driving most returns, localize those problems to the highest-risk product areas, and measure the impact of targeted fixes.**
+<img width="1272" height="752" alt="image" src="https://github.com/user-attachments/assets/499c4a07-b057-40ff-8bd4-4acaf2d5d348" />
+
 
 > Root-cause statements in this project are **hypotheses**, not proven causes, because the dataset does not contain direct customer feedback, PDP-content history, packaging type or carrier-level evidence.
 
@@ -89,15 +93,23 @@ The analysis follows:
 
 ### Insight 1 — Returns are concentrated in three major reasons
 The top three return reasons account for **56.5% of returned units**. This gives the business a focused starting point instead of trying to address all return reasons simultaneously.
+<img width="1082" height="486" alt="image" src="https://github.com/user-attachments/assets/97ed7405-28f4-45d7-9eea-4b8b65aa2684" />
+
 
 ### Insight 2 — Fashion has the highest return risk
 Fashion has a **26.15% return rate**, the highest across categories shown. This makes Fashion a priority area for deeper product and sizing investigation.
+<img width="1117" height="465" alt="image" src="https://github.com/user-attachments/assets/96c56433-8a69-4c59-8aef-7d2a377e501e" />
+
 
 ### Insight 3 — Year-end return risk increases sharply
 The monthly return rate reaches **32.16% in December**, compared with **19.30% in September**. The business should investigate what changes during Q4, including product mix, promotions, customer behavior and delivery pressure. These are investigation hypotheses, not proven causes.
+<img width="1047" height="417" alt="image" src="https://github.com/user-attachments/assets/4acc5ef3-1ea5-4a50-8413-bcf3a863a304" />
+
 
 ### Insight 4 — Mid-priced products need investigation
 The **₹1K–5K band has the highest return rate at 23.28%**, while products under ₹1K are at **13.65%**. The difference is **9.63 percentage points**, so this segment deserves drill-down by category and return reason.
+<img width="1037" height="536" alt="image" src="https://github.com/user-attachments/assets/f256e067-f236-4698-a6b3-b269b9688dfe" />
+
 
 ## 7. Recommendations
 
