@@ -1,61 +1,53 @@
 # Business Recommendations
 
-## Decision
+## Product Recommendation — E-commerce Returns Reduction
 
-Which return problems should be fixed first to reduce avoidable returns and refund exposure?
+### Business Decision
+Which return problems should the e-commerce team fix first to reduce customer returns and refund exposure?
 
-## Priority 1 — Product Not As Expected
+### 1. Top 3 Problems Causing Returns
 
-**Evidence:** 228 returned units; highest return-reason volume.
+| Priority problem | Returned units | Evidence / pattern |
+|---|---:|---|
+| **Product Not As Expected** | **228** | Highest return-reason volume; spread across categories |
+| **Wrong Size** | **217** | **88% (192/217)** concentrated in Fashion |
+| **Damaged Product** | **184** | **76%** concentrated in Electronics + Home & Kitchen; highest refund value among individual reasons |
 
-**Action:** Improve product images, descriptions, specifications and expectation-setting for high-return products.
+Together, these three problems account for **629 of 1,113 returned units (56.5%)**.
 
-**Owner:** Merchandising / Content
+### 2. Business Impact
 
-**Success KPI:** Product Not As Expected return rate.
+The analysis confirms a material refund burden from returns. The core project metrics are **3,100 orders, 745 returned orders, a 24.03% return rate, and 1,113 returned units**.
 
-**Validation needed:** Product-page versions, customer feedback and complaint text.
+The project does **not** claim a monthly “revenue lost” figure as realized loss because refund totals differ across model/report versions and the available data does not include the full operational cost of returns. Refund exposure should therefore be reported using the validated version of the Power BI model when presented to stakeholders.
 
-## Priority 2 — Wrong Size
+### 3. Three Fixes to Implement First
 
-**Evidence:** 217 returned units; strong relevance to Fashion/footwear diagnostics.
+**1. Fashion sizing improvement**  
+Rebuild Fashion size charts and add clearer fit guidance / size recommendations on product pages.
 
-**Action:** Improve size charts, fit guidance and product-specific sizing information.
+**2. Product-page content improvement**  
+Audit and rewrite descriptions, specifications and images for the highest-return SKUs driving **Product Not As Expected** returns.
 
-**Owner:** Fashion / Merchandising
+**3. Packaging and handling investigation**  
+Upgrade protective packaging for high-damage Electronics and Home & Kitchen products and audit courier/handling processes.
 
-**Success KPI:** Wrong Size return rate / Fashion return rate.
+### 4. How to Measure Success
 
-## Priority 3 — Damaged Product
+| Fix | Success KPI | Measurement approach |
+|---|---|---|
+| Fashion size charts / fit guidance | **Fashion return rate** + Wrong Size return rate | Compare monthly pre-launch vs post-launch performance |
+| Product-page content rewrite | **Product Not As Expected returned units / rate** | Compare targeted SKUs for the quarter before vs after launch |
+| Packaging / handling improvement | **Damaged Product return rate + refund amount** | Compare Electronics + Home & Kitchen pre- vs post-launch |
 
-**Evidence:** 184 returned units and approximately ₹8.03L derived refunds.
+### Root-Cause Guardrail
 
-**Action:** Audit packaging and marketplace/delivery-handling quality for high-damage products.
+Listing, product, packaging and logistics classifications are **evidence-based hypotheses**, not proven causal findings. The dataset does not contain PDP-version, size-chart-version, packaging-type or carrier-level evidence needed to prove the exact root cause.
 
-**Owner:** Operations / Logistics / Seller Ops
+### Prioritization Rule
 
-**Success KPI:** Damaged Product return rate + refund amount.
+Prioritize fixes using **return volume + return rate + financial exposure**, then validate the suspected cause with additional operational/product data.
 
-**Validation needed:** Packaging type, carrier and handling data.
+### What I Would Build Next
 
-## Priority 4 — Quality Issue
-
-**Evidence:** 143 returned units.
-
-**Action:** Create vendor/product-quality scorecards using returned units and refund amount.
-
-**Owner:** Quality / Vendor Management
-
-**Success KPI:** Quality Issue return rate and refund amount.
-
-## Priority 5 — Discount Risk
-
-**Action:** Test whether deep discounts are associated with elevated return rates; do not treat correlation as causation.
-
-**Owner:** Pricing / Merchandising
-
-**Success KPI:** Return rate by discount band.
-
-## Prioritization rule
-
-Fix problems that combine **high returned units + high refund amount** first. Use return rate as risk context and validate proposed root causes with additional operational evidence.
+**Automated weekly return reports** showing overall return rate, top return reasons, category performance, returned units and refund exposure so the e-commerce team can monitor whether interventions are working.
