@@ -86,19 +86,6 @@ The analysis shows that returns are concentrated in a small number of problems. 
 
 ---
 
-# 🗂️ Dataset Overview
-
-| Attribute | Details |
-|---|---|
-| Dataset | E-commerce Returns & Refunds |
-| Analysis Period | January 2025 – December 2025 |
-| Total Records | 4,286 order lines |
-| Customers | 850 |
-| Orders | 3,100 |
-| Products | 104 |
-| Primary Focus | Product Returns & Refund Exposure |
-| Data Granularity | One row per order line |
-
 ---
 
 # ⚙️ Project Methodology
