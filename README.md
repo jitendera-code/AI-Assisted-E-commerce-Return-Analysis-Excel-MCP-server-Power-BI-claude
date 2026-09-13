@@ -1,258 +1,111 @@
 # E-commerce Product Return Analysis Using AI Assistant
 
-### Decision-Driven Data Analytics | Power BI · DAX · Excel · Claude AI · MCP
+### Decision-Driven Analytics | Power BI · DAX · Excel · Claude AI · MCP
 
 ## 1. Background & Overview
 
 ### Business Context
-An India-based e-commerce marketplace sells products across Fashion, Electronics, Home & Kitchen, Sports, Beauty and Books through multiple sales channels. As the business grows, product returns create refund exposure, operational workload and customer-experience challenges.
+An India-based e-commerce marketplace sells products across Fashion, Electronics, Home & Kitchen, Sports, Beauty and Books through multiple sales channels. Product returns create refund exposure, operational workload and customer-experience challenges.
 
 ### Business Problem
-The business needs a clear, data-driven view of **why customers return products, where return risk is concentrated, when return risk increases, and which return problems should be addressed first**.
+The business needs to understand **why customers return products, where return risk is concentrated, when return risk increases, and which problems should be fixed first**.
 
-Without this visibility, product, merchandising and operations teams may spend resources addressing individual return cases without knowing which issues have the greatest business impact.
+### Objective
+Use return data to identify the biggest return drivers, locate high-risk product areas, and recommend targeted actions that can be measured after implementation.
 
-### Core Business Question
-> **Which return problems should the business fix first to reduce customer returns and refund exposure?**
-
-### Analytical Approach
-**Business Problem → Metrics → Analysis → Insight → Recommendation → Success KPI**
-
-### Key Metrics
-- Return Rate %
-- Returned Units
-- Refund Amount
-- Average Return Days
-- Category / Product Return Rate
-- Return Reason
-
----
-
-## 2. Data Structure & Data Model Overview
+## 2. Data Structure / Data Model
 
 ### Dataset Overview
 
-| Area | Details |
+| Metric | Detail |
 |---|---|
-| **Period** | 1 Jan 2025 – 31 Dec 2025 |
-| **Order-line rows** | 4,286 |
-| **Unique Orders** | 3,100 |
-| **Products** | 104 |
-| **Customers** | 850 |
-| **Grain** | One row represents one product line within an order |
-| **Return condition** | `Return_Quantity > 0` |
+| Period | Jan–Dec 2025 |
+| Order-line rows | 4,286 |
+| Unique orders | 3,100 |
+| Products | 104 |
+| Customers | 850 |
+| Data grain | One product line per order |
 
-### Key Data Domains
+### Main Data Areas
 
-- **Orders:** order date, quantity, price, discount, delivery and return information
-- **Customers:** customer segment, city and state
-- **Products:** product, category, subcategory and brand
-- **Returns:** return flag, return quantity, return date and return reason
-- **Financials:** unit price, unit cost, shipping fee and refund deductions
+**Orders · Customers · Products · Pricing · Delivery · Returns**
 
 ### Power BI Data Model
 
-The Power BI model uses **Fact_Orders** as the central fact table with supporting dimensions for:
+The model uses **Fact_Orders** with supporting dimensions for **Date, Product, Customer, Channel, Payment Method and Return Reason**.
 
-- Date
-- Product
-- Customer
-- Channel
-- Payment Method
-- Return Reason
+**Power BI Data Model / ERD:**
 
-### Data Model Screenshot
+![Power BI Data Model](screenshots/data_model.png)
 
-**Add your Power BI Data Model / Relationships screenshot here.**
-
-Suggested image path:
-` screenshots/data_model.png `
-
-### Key Modeling Decision
-
-Because `Order_ID` can repeat across product lines, order-level KPIs use **DISTINCTCOUNT(Order_ID)** rather than row counts.
-
----
+> Key modeling decision: `Order_ID` can repeat across product lines, so order-level KPIs use distinct order counts.
 
 ## 3. Executive Summary
 
-### Overall Return Performance
+The analysis shows that returns are concentrated in a small number of problems. **745 of 3,100 orders were returned (24.03%)**, and the top three reasons — **Product Not As Expected, Wrong Size and Damaged Product** — represent **56.5% of returned units**. Return risk rises sharply toward year-end, while **Fashion has the highest category return rate (26.15%)** and the **₹1K–5K band has the highest return rate (23.28%)**. These findings point to focused product, sizing and operational investigations rather than broad fixes.
 
-- **745 of 3,100 orders were returned → 24.03% return rate.**
-- **1,113 returned units** were recorded.
-- **Product Not As Expected (228), Wrong Size (217), and Damaged Product (184)** account for **629 of 1,113 returned units → 56.5%** of return volume.
-
-### Where is the Risk Highest?
-
-- **Fashion:** 26.15% return rate — highest category.
-- **Electronics:** 21.74% return rate — second highest category.
-- **₹1K–5K:** 23.28% return rate — highest price band.
-
-### When Does Risk Increase?
-
-Return rate rises from **19.30% in September to 32.16% in December**, an increase of **12.86 percentage points**.
-
-### Executive Takeaway
-
-**Returns are concentrated in a small number of return problems and high-risk areas. The business should prioritize targeted interventions instead of treating every return equally.**
-
-> Root-cause conclusions are treated as hypotheses because the available dataset does not contain direct customer feedback, PDP-content history, packaging type or carrier-level evidence.
-
----
+![Executive Dashboard](screenshots/excuctive_summary.png)
 
 ## 4. Insights Deep Dive
 
-### Insight 1 — Three return reasons drive most of the return volume
+### 1. Three return reasons drive most of the volume
 
-**Finding:** Product Not As Expected, Wrong Size and Damaged Product represent **56.5% of returned units**.
+**Finding:** Product Not As Expected (228), Wrong Size (217) and Damaged Product (184) account for **629 of 1,113 returned units (56.5%)**.
 
-**Why it matters:** These three problems provide the clearest starting point for intervention because they represent a large share of the return burden.
+**Why it matters:** A small number of problems account for a large share of return volume, giving the business a focused starting point.
 
-**Investigation direction:**
-- Product Not As Expected → product images, descriptions and specifications
-- Wrong Size → size charts and fit guidance
-- Damaged Product → packaging and delivery/handling
+<img width="1082" height="486" alt="Return reasons" src="https://github.com/user-attachments/assets/97ed7405-28f4-45d7-9eea-4b8b65aa2684" />
 
-![Return Reasons](screenshots/return_reasons.png)
+### 2. Fashion has the highest return risk
 
-### Insight 2 — Fashion has the highest return risk
+**Finding:** Fashion has a **26.15% return rate**. Also, **192 of 217 Wrong Size returned units (88%) come from Fashion**.
 
-**Finding:** Fashion records a **26.15% return rate**, the highest category.
+**Why it matters:** Fashion is the strongest area for a deeper sizing and product-expectation investigation.
 
-**Supporting evidence:** **192 of 217 Wrong Size returned units come from Fashion → 88%**.
+<img width="1258" height="462" alt="Category return rate" src="https://github.com/user-attachments/assets/96c56433-8a69-4c59-8aef-7d2a377e501e" />
 
-**Why it matters:** Fashion is the strongest area for deeper sizing and product-expectation investigation.
+### 3. Return risk increases sharply toward year-end
 
-![Category Return Rate](screenshots/category_return_rate.png)
+**Finding:** Monthly return rate rises from **19.30% in September to 32.16% in December**, a **12.86 percentage-point increase**.
 
-### Insight 3 — Return risk increases sharply toward year-end
+**Why it matters:** Investigate Q4 changes such as product mix, promotions, customer behavior and delivery pressure.
 
-**Finding:** Return rate increases from **19.30% in September to 32.16% in December**.
+<img width="1047" height="417" alt="Monthly return rate" src="https://github.com/user-attachments/assets/4acc5ef3-1ea5-4a50-8413-bcf3a863a304" />
 
-**Why it matters:** The business should investigate what changes during Q4, including product mix, promotions, customer behavior and delivery pressure.
+### 4. The ₹1K–5K segment has the highest return rate
 
-These are **investigation hypotheses, not proven causal drivers**.
+**Finding:** The **₹1K–5K** band has a **23.28% return rate**, versus **13.65%** for products under ₹1K.
 
-![Monthly Return Rate](screenshots/monthly_return_rate.png)
+**Why it matters:** Drill down by category and return reason before deciding on an intervention.
 
-### Insight 4 — Mid-priced products have the highest return rate
+<img width="1037" height="536" alt="Price range return rate" src="https://github.com/user-attachments/assets/f256e067-f236-4698-a6b3-b269b9688dfe" />
 
-**Finding:** The **₹1K–5K price band has a 23.28% return rate**, compared with **13.65% for products under ₹1K**.
+### 5. Damage is concentrated in Electronics and Home & Kitchen
 
-**Difference:** **9.63 percentage points**.
+**Finding:** Electronics and Home & Kitchen contribute **139 of 184 Damaged Product returned units (~76%)**.
 
-**Why it matters:** This segment deserves a deeper category-by-return-reason drill-down.
+**Why it matters:** Focus packaging and delivery/handling checks on these categories.
 
-![Price Range Return Rate](screenshots/price_range_return_rate.png)
-
-### Insight 5 — Damaged returns are concentrated in specific categories
-
-**Finding:** Electronics and Home & Kitchen contribute **139 of 184 Damaged Product returned units → ~76%**.
-
-**Why it matters:** Packaging and delivery/handling investigations can be focused on these categories rather than applied broadly across the catalog.
-
-### Diagnostic Analysis
-
-The Power BI diagnostic view drills into **product, subcategory, return reason, discount and return timing** to move from:
-
-**What is happening? → Where should the business investigate? → What should be fixed first?**
-
----
+![Diagnostic Dashboard](screenshots/Product_details.png)
 
 ## 5. Recommendations
 
-| Priority | Return Problem | Recommended Action | Stakeholder | Success KPI |
-|---|---|---|---|---|
-| **1** | Product Not As Expected | Improve product-page images, descriptions and specifications | Merchandising / Content | Product Not As Expected rate |
-| **2** | Wrong Size | Improve size charts and fit guidance, prioritizing Fashion | Fashion / Merchandising | Wrong Size rate + Fashion return rate |
-| **3** | Damaged Product | Audit packaging and delivery/handling for high-damage products | Operations / Logistics | Damage return rate + Refund Amount |
+| Priority | Action | Owner | Success KPI |
+|---|---|---|---|
+| **1** | Improve product-page images, descriptions and specifications | Merchandising / Content | Product Not As Expected rate |
+| **2** | Improve size charts and fit guidance, prioritizing Fashion | Fashion / Merchandising | Wrong Size rate + Fashion return rate |
+| **3** | Audit packaging and delivery/handling for high-damage products | Operations / Logistics | Damage return rate + Refund Amount |
 
-### Prioritization Logic
+### Prioritization
 
-Recommendations are prioritized using:
+Prioritize actions using **return volume + return rate + financial exposure** so teams focus on problems that are significant and actionable.
 
-**Return Volume + Return Rate + Financial Exposure**
+### Caveats & Assumptions
 
-The objective is to focus business effort on problems that are large enough to matter and specific enough for a team to act on.
+The dataset identifies **return patterns and priority areas**, but it cannot prove operational causality. Claims about packaging, listings, sizing or logistics should be validated with additional operational evidence before implementation.
 
-### Validation Before Implementation
+No realized savings are claimed because recommendations have not yet been implemented.
 
-The analysis identifies **where to focus**, but operational teams should validate the underlying cause before implementing a permanent change. For example, packaging recommendations should be checked against packaging specifications and carrier/handling records.
-
-### Success Measurement
-
-After implementation, compare:
-
-- overall return rate before vs. after;
-- priority return-reason rate before vs. after;
-- Fashion return rate before vs. after sizing improvements; and
-- refund exposure before vs. after the intervention.
-
-No realized savings are claimed because no intervention has yet been executed.
-
----
-
-## Tools & AI-Assisted Workflow
+### Tools
 
 **Power BI · DAX · Excel · Claude AI · MCP**
-
-Claude was used as an **analytical assistant** for data exploration, Power BI semantic-model inspection through MCP, DAX development/debugging, validation and hypothesis development.
-
-The analyst remained responsible for the business question, KPI definitions, analysis design, interpretation, prioritization and final validation.
-
-## Portfolio Evidence
-
-- [`docs/PORTFOLIO_STORY.md`](docs/PORTFOLIO_STORY.md) — decision-driven project story
-- [`analysis/ANALYSIS_NOTES.md`](analysis/ANALYSIS_NOTES.md) — analytical evidence
-- [`analysis/BUSINESS_RECOMMENDATIONS.md`](analysis/BUSINESS_RECOMMENDATIONS.md) — recommended actions
-- [`data/DATA_DICTIONARY.md`](data/DATA_DICTIONARY.md) — field definitions
-- [`docs/PROJECT_SCOPE.md`](docs/PROJECT_SCOPE.md) — project scope
-- [`powerbi/README.md`](powerbi/README.md) — dashboard explanation
-- [`powerbi/dax/MEASURES.md`](powerbi/dax/MEASURES.md) — DAX evidence
-- [`PowerBI_Claude_MCP_Setup_Guide.pdf`](PowerBI_Claude_MCP_Setup_Guide.pdf) — AI/MCP setup evidence
-
-## Repository Structure
-
-```text
-├── README.md
-├── PowerBI_Claude_MCP_Setup_Guide.pdf
-├── analysis/
-│   ├── ANALYSIS_NOTES.md
-│   └── BUSINESS_RECOMMENDATIONS.md
-├── data/
-│   ├── DATA_DICTIONARY.md
-│   └── README.md
-├── excel/
-│   ├── Book1.csv
-│   └── README.md
-├── powerbi/
-│   ├── README.md
-│   ├── Return analysis.pbix
-│   └── dax/
-│       └── MEASURES.md
-├── screenshots/
-│   ├── README.md
-│   ├── excuctive_summary.png
-│   ├── Product_details.png
-│   ├── return_reasons.png
-│   ├── category_return_rate.png
-│   ├── monthly_return_rate.png
-│   └── price_range_return_rate.png
-└── docs/
-    ├── PORTFOLIO_STORY.md
-    ├── PROJECT_SCOPE.md
-    └── RESUME_BULLETS.md
-```
-
-## Next Step
-
-**What I'd build next:** automated weekly return reports so the e-commerce team can track return-rate changes, top return reasons, returned units and refund exposure on a recurring basis.
-
-## Interview Summary
-
-> “I treated product returns as a business decision problem rather than only a dashboard exercise. I analyzed return rate, return reasons, category, price range and time patterns, then drilled into product and subcategory performance to identify where the business should focus. The top three return reasons represented 56.5% of returned units. I translated those findings into targeted actions for merchandising and operations, while keeping root-cause statements as hypotheses because the available data cannot prove causality.”
-
-## Author
-
-**Jitender Yadav**  
-Data Analyst | SQL | Power BI | Excel | Business Analytics
