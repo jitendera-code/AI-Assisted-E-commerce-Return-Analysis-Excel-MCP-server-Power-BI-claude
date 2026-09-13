@@ -1,6 +1,8 @@
-# E-commerce Product Return Analysis Using AI Assistant
+# E-commerce Product Return Analysis: Which Return Problems Should Be Prioritized First?
 
 ### Decision-Driven Analytics | Power BI · DAX · Excel · Claude AI · MCP
+
+> **Primary Business Decision:** Which return problems should the business prioritize first to reduce return risk and refund exposure?
 
 ---
 
@@ -8,6 +10,7 @@
 
 - [📖 Project Background](#-project-background)
 - [🎯 Business Problem](#-business-problem)
+- [⭐ North Star Metrics](#-north-star-metrics)
 - [🗂️ Data Structure / Data Model](#️-data-structure--data-model)
 - [📊 Executive Summary](#-executive-summary)
 - [📈 Insights Deep Dive](#-insights-deep-dive)
@@ -32,14 +35,29 @@ The analysis focuses on:
 
 # 🎯 Business Problem
 
-The business needs to answer four decisions:
+The business needs to determine **which return problems deserve attention first** rather than treating every return reason equally.
+
+The analysis answers four supporting questions:
 
 1. **Why** are customers returning products most often?
 2. **Where** is return risk concentrated across categories, price ranges and products?
 3. **When** does return risk increase during the year?
 4. **What should the business fix first** based on return volume, return rate and financial exposure?
 
-The goal is not simply to report return numbers, but to identify the highest-priority problems that teams can investigate and act on.
+The goal is to move from **return reporting → diagnosis → prioritization → action**.
+
+---
+
+# ⭐ North Star Metrics
+
+| Metric | Definition |
+|---|---|
+| **Return Rate %** | Returned orders ÷ total orders |
+| **Returned Units** | Units with `Return_Quantity > 0` |
+| **Refund Amount** | Refund value associated with returned units |
+| **Average Return Days** | Average days between delivery and return |
+
+These metrics keep the analysis focused on the scale, concentration, financial exposure and timing of the return problem.
 
 ---
 
@@ -76,7 +94,7 @@ Out of **3,100 orders, 745 were returned**, representing a **24.03% return rate*
 
 **Fashion has the highest category return rate at 26.15%**, with **88% of Wrong Size returned units concentrated in Fashion**. Return risk also increases from **19.30% in September to 32.16% in December (+12.86 percentage points)**, indicating a clear period for deeper Q4 investigation.
 
-These findings suggest a focused starting point: **sizing and product-page experience in Fashion, plus packaging / handling for high-damage categories**, rather than broad interventions across every return reason.
+**Decision supported:** start with a focused investigation into **Fashion sizing, product-page experience and damage prevention**, rather than broad interventions across every return reason.
 
 <img width="1387" height="747" alt="Executive dashboard" src="https://github.com/user-attachments/assets/c88e15eb-bc49-44fc-9f08-52a6a8d77458" />
 
@@ -88,9 +106,11 @@ These findings suggest a focused starting point: **sizing and product-page exper
 
 <img width="1082" height="486" alt="Return reasons" src="https://github.com/user-attachments/assets/97ed7405-28f4-45d7-9eea-4b8b65aa2684" />
 
-**Product Not As Expected (228), Wrong Size (217), and Damaged Product (184)** contribute **629 of 1,113 returned units (56.5%)**.
+**Finding:** Product Not As Expected (228), Wrong Size (217), and Damaged Product (184) contribute **629 of 1,113 returned units (56.5%)**.
 
-**Why it matters:** the business can concentrate investigation and resources on three problems instead of treating all return reasons equally.
+**Why it matters:** more than half of returned units are concentrated in three problems, making them the logical starting point for investigation and prioritization.
+
+**Decision supported:** focus analysis and action planning on these three return problems first.
 
 ---
 
@@ -98,9 +118,11 @@ These findings suggest a focused starting point: **sizing and product-page exper
 
 <img width="1117" height="465" alt="Category return rate" src="https://github.com/user-attachments/assets/96c56433-8a69-4c59-8aef-7d2a377e501e" />
 
-**Fashion has the highest return rate at 26.15%.** More importantly, **192 of 217 Wrong Size returned units (88%) come from Fashion**.
+**Finding:** **Fashion has the highest return rate at 26.15%**, and **192 of 217 Wrong Size returned units (88%)** come from Fashion.
 
-**Why it matters:** this makes **size charts, fit guidance and product-page information** a logical priority for investigation. The data identifies the pattern, but does not prove that sizing content is the root cause.
+**Why it matters:** the pattern is highly concentrated, so Fashion is the strongest area for sizing-related investigation.
+
+**Decision supported:** review **size charts, fit guidance and size recommendations** on high-return Fashion pages. The dataset identifies the pattern, but does not prove sizing content is the root cause.
 
 ---
 
@@ -108,9 +130,11 @@ These findings suggest a focused starting point: **sizing and product-page exper
 
 <img width="1047" height="417" alt="Monthly return rate" src="https://github.com/user-attachments/assets/4acc5ef3-1ea5-4a50-8413-bcf3a863a304" />
 
-Return rate rises from **19.30% in September to 32.16% in December**, an increase of **12.86 percentage points**.
+**Finding:** Return rate rises from **19.30% in September to 32.16% in December**, an increase of **12.86 percentage points**.
 
-**Why it matters:** Q4 should be investigated for changes in **product mix, promotions, customer behavior and delivery pressure**. These are investigation hypotheses, not proven causal drivers from this dataset.
+**Why it matters:** December represents a materially higher-risk period and should not be treated like an average month.
+
+**Decision supported:** investigate Q4 changes in **product mix, promotions, customer behavior and delivery pressure** before choosing a seasonal intervention. These are hypotheses, not proven causal drivers from this dataset.
 
 ---
 
@@ -118,19 +142,23 @@ Return rate rises from **19.30% in September to 32.16% in December**, an increas
 
 <img width="1037" height="536" alt="Price range return rate" src="https://github.com/user-attachments/assets/f256e067-f236-4698-a6b3-b269b9688dfe" />
 
-The **₹1K–5K price band has a 23.28% return rate**, compared with **13.65% under ₹1K** — a **9.63 percentage-point difference**.
+**Finding:** The **₹1K–5K price band has a 23.28% return rate**, compared with **13.65% under ₹1K** — a **9.63 percentage-point difference**.
 
-**Why it matters:** return risk is not simply “higher price = higher returns.” The ₹1K–5K segment deserves drill-down by category and return reason before any intervention is chosen.
+**Why it matters:** return risk is not simply “higher price = higher returns.”
+
+**Decision supported:** drill down the ₹1K–5K segment by **category and return reason** before selecting an intervention.
 
 ---
 
 ## 5. Damage returns are concentrated in two categories
 
-Electronics and Home & Kitchen contribute **139 of 184 Damaged Product returned units (~76%)**.
+**Finding:** Electronics and Home & Kitchen contribute **139 of 184 Damaged Product returned units (~76%)**.
 
 <img width="1272" height="752" alt="Diagnostic dashboard" src="https://github.com/user-attachments/assets/499c4a07-b057-40ff-8bd4-4acaf2d5d348" />
 
-**Why it matters:** this narrows the operational investigation toward **packaging and delivery / handling** for these categories. Again, the dataset supports the concentration pattern, not proof of the exact operational cause.
+**Why it matters:** the damage problem is concentrated enough to support targeted operational investigation rather than a marketplace-wide packaging change.
+
+**Decision supported:** review **protective packaging and delivery / handling** for Electronics and Home & Kitchen. The dataset supports the concentration pattern, not proof of the exact operational cause.
 
 ---
 
@@ -138,19 +166,17 @@ Electronics and Home & Kitchen contribute **139 of 184 Damaged Product returned 
 
 Recommendations are tied directly to the observed return patterns and framed as **proposed actions**, not realized outcomes.
 
-| Priority | Team / Owner | Recommended Action | Expected Impact | KPI to Track |
-|---|---|---|---|---|
-| **1. Fashion sizing** | Product / Merchandising | Improve size charts, fit guidance and size recommendations on high-return Fashion pages. | Reduce Wrong Size returns in the highest-risk category. | Fashion return rate + Wrong Size return rate |
-| **2. Product-page experience** | Merchandising / Content | Audit images, descriptions and specifications for SKUs driving Product Not As Expected returns. | Reduce expectation-gap returns on targeted SKUs. | Product Not As Expected return rate |
-| **3. Damage prevention** | Operations / Logistics | Review protective packaging and delivery / handling for Electronics and Home & Kitchen. | Reduce Damaged Product returns and refund exposure. | Damaged Product return rate + refund amount |
+| Priority | Team / Owner | Evidence | Recommended Action | Expected Impact | KPI to Track |
+|---|---|---|---|---|---|
+| **1. Fashion sizing** | Product / Merchandising | Fashion return rate **26.15%**; **88%** of Wrong Size units come from Fashion | Improve size charts, fit guidance and size recommendations on high-return Fashion pages. | Reduce Wrong Size returns in the highest-risk category. | Fashion return rate + Wrong Size return rate |
+| **2. Product-page experience** | Merchandising / Content | **228** Product Not As Expected returned units | Audit images, descriptions and specifications for SKUs driving expectation-gap returns. | Reduce Product Not As Expected returns on targeted SKUs. | Product Not As Expected return rate |
+| **3. Damage prevention** | Operations / Logistics | Electronics + Home & Kitchen account for **~76%** of Damaged Product units | Review protective packaging and delivery / handling for these categories. | Reduce Damaged Product returns and refund exposure. | Damaged Product return rate + refund amount |
 
 ### Prioritization Logic
 
-Prioritize using:
+**Return Volume + Return Rate + Financial Exposure → Validate Cause → Recommend Action → Track KPI**
 
-**Return Volume + Return Rate + Financial Exposure**
-
-Then validate the suspected root cause with operational evidence before implementation.
+This keeps recommendations evidence-led while avoiding unsupported claims about root cause or savings.
 
 ### Caveats & Assumptions
 
@@ -162,12 +188,12 @@ No realized savings are claimed because these recommendations have not been impl
 
 # ⚙️ Methodology & Technical Details
 
-1. Reviewed and validated the raw e-commerce returns dataset.
-2. Standardized return reasons and defined returned items using `Return_Quantity > 0`.
-3. Built the Power BI model and DAX measures for return rate, returned units, refund amount and return timing.
-4. Analyzed return patterns by reason, category, price range, month, subcategory and product.
-5. Used drill-down analysis to identify concentrated priority areas.
-6. Translated the evidence into business recommendations and measurable KPIs.
+1. **Data quality:** reviewed and validated the raw e-commerce returns dataset.
+2. **Return definition:** standardized return reasons and defined returned items using `Return_Quantity > 0`.
+3. **Data modeling:** built the Power BI model and supporting dimensions.
+4. **North Star metrics:** created measures for return rate, returned units, refund amount and return timing.
+5. **Analysis:** compared return patterns by reason, category, price range, month, subcategory and product.
+6. **Decision support:** used concentrated patterns and drill-down analysis to prioritize business actions and KPIs.
 
 ### Technical Skills
 
