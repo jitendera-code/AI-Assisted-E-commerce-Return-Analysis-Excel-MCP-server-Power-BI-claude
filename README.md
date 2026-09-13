@@ -71,7 +71,8 @@ Answering these questions helps product, merchandising and operations teams focu
 
 The model uses **Fact_Orders** with supporting dimensions for **Date, Product, Customer, Channel, Payment Method and Return Reason**.
 
-![Power BI Data Model](screenshots/data_model.png)
+<img width="1531" height="751" alt="image" src="https://github.com/user-attachments/assets/12c22cb1-ef54-450d-bc6d-69e3a282ca3b" />
+
 
 > Key modeling decision: `Order_ID` can repeat across product lines, so order-level KPIs use distinct order counts.
 
