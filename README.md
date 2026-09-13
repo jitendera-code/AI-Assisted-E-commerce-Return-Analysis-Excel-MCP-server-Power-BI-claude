@@ -1,4 +1,4 @@
-# E-commerce Product Return Analysis: Which Return Problems Should Be Prioritized First?
+# E-commerce Product Return Analysis Using AI Assistant
 
 ### Decision-Driven Analytics | Power BI · DAX · Excel · Claude AI · MCP
 
@@ -43,6 +43,10 @@ The analysis answers four supporting questions:
 2. **Where** is return risk concentrated across categories, price ranges and products?
 3. **When** does return risk increase during the year?
 4. **What should the business fix first** based on return volume, return rate and financial exposure?
+
+### Decision Framework
+
+**Business Problem → Decision → North Star Metrics → Analysis → Insights → Recommendations → KPI**
 
 The goal is to move from **return reporting → diagnosis → prioritization → action**.
 
